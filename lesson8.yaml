@@ -17,7 +17,7 @@
   hosts: buildapp
   tasks:
     - name: Create app
-      ansible.builtin.git:
+      git:
        repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git 
        dest: /tmp/boxfuse-sample-java-war-hello/
     - name: build app maven
