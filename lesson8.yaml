@@ -23,7 +23,7 @@
        chdir: /tmp/boxfuse-sample-java-war-hello/
 
     - name: Copy .war file from remote host to local host
-      synchronize:  src={{ item }} dest=/home/elliot/DevOpsBootcamp/lesson8/ mode=pull
+      synchronize:  src={{ item }} dest=/tmp/ mode=pull
       with_items:
        - "/tmp/boxfuse-sample-java-war-hello/target/hello-1.0.war"
 
@@ -43,7 +43,7 @@
 
     - name: Copy .war from local host to remote host
       copy:
-        src: hello-1.0.war
+        src: /tmp/hello-1.0.war
         dest: /var/lib/tomcat9/webapps/
                 
 
