@@ -10,4 +10,4 @@
     ansible-playbook -i hosts lesson8.yaml 
 
 Шаг 4:
-    http://<ip-address instances>:8080/hello-1.0/
+    http://ip-address-instances:8080/hello-1.0/
