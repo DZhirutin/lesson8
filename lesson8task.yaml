@@ -1,0 +1,20 @@
+---
+#Build server
+- name: nginx
+  hosts: buildapp
+  become: yes
+  tasks: 
+    - name: Update repo and cache
+      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+    - name: Install nginx
+      apt:
+        name: nginx
+    - name: Ensure nginx service is started
+      service: 
+        name: nginx
+        state: started        
+    - name: Long form task does not
+      replace:
+       path: /var/www/html/index.nginx-debian.html
+       regexp: '<h1>Welcome to nginx!</h1>'
+       replace: '<p><script> document.write (new Date().toLocaleDateString()); </script></p>'       
